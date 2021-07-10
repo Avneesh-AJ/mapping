@@ -28,6 +28,6 @@ map=folium.Map(location=[38,-99.09],zoom_start=6, tiles="Stamen Terrain")
 fg=folium.FeatureGroup(name ="My Map")
 for lt,ln,ele,name in (zip(lat,lon,elev,name)):
     iframe=folium.IFrame(html= html % (name, name, ele), width =200 ,height = 100)
-    fg.add_child(folium.Marker(location=[lt,ln],popup=folium.Popup(iframe),icon=folium.Icon(color=color_gen(ele))))
+    fg.add_child(folium.CircleMarker(location=[lt,ln],radius = 6 , popup=folium.Popup(iframe),fill_color=color_gen(ele),color='grey',fil_opacity=0.8))
 map.add_child(fg)
 map.save("localhost.html")
